@@ -1,3 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">penduGame</string>
+    <string name="app_name">Pendu</string>
+    <string name="btn_new_game">NOUVELLE PARTIE</string>
+    <string name="btn_play_again">REJOUER</string>
+    <string name="btn_home">ACCUEIL</string>
+    <string name="difficulty_easy">FACILE</string>
+    <string name="difficulty_medium">MOYEN</string>
+    <string name="difficulty_hard">DIFFICILE</string>
+    <string name="score_display">gagne: %1$d   perdu: %2$d</string>
+    <string name="result_victory">GAGNER!</string>
+    <string name="result_defeat">PERDU!</string>
+    <string name="you_guessed_it">trouver: %1$s</string>
+    <string name="word_was">le mot: %1$s</string>
+    <string name="overall_score">gagne: %1$d   perdu: %2$d</string>
 </resources>

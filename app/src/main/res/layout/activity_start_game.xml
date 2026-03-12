@@ -1,10 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartGame">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#1A1A2E"
+    android:padding="32dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P E N D U"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        android:textColor="#0000FF"
+        android:fontFamily="monospace"
+        android:letterSpacing="0.15"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n========="
+        android:fontFamily="monospace"
+        android:textSize="15sp"
+        android:textColor="#FFFFFF"
+        android:background="#16213E"
+        android:padding="16dp"
+        android:layout_marginBottom="40dp"/>
+
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="gagner: 0   perdu: 0"
+        android:textSize="15sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="40dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DIFFICULTE"
+        android:textSize="11sp"
+        android:textColor="#FFFFFF"
+        android:letterSpacing="0.2"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btn_easy"
+        android:layout_width="220dp"
+        android:layout_height="52dp"
+        android:text="@string/difficulty_easy"
+        android:textColor="#000000"
+        android:backgroundTint="#00FF00"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btn_medium"
+        android:layout_width="220dp"
+        android:layout_height="52dp"
+        android:text="@string/difficulty_medium"
+        android:textColor="#000000"
+        android:backgroundTint="#0000FF"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btn_hard"
+        android:layout_width="220dp"
+        android:layout_height="52dp"
+        android:text="@string/difficulty_hard"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FF0000"
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+
+</LinearLayout>

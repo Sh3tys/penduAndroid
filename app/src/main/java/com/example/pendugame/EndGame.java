@@ -1,24 +1,49 @@
 package com.example.pendugame;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.widget.Button;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class EndGame extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_end_game);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        boolean won  = getIntent().getBooleanExtra("gagner",  false);
+        String  word = getIntent().getStringExtra("mot");
+        if (word == null) word = "???";
+
+        TextView tvResult  = findViewById(R.id.tv_result);
+        TextView tvWord    = findViewById(R.id.tv_word);
+        TextView tvScore   = findViewById(R.id.tv_score);
+        Button   btnAgain  = findViewById(R.id.btn_play_again);
+
+        if (won) {
+            tvResult.setText(R.string.result_victory);
+            tvResult.setTextColor(Color.parseColor("#00FF00"));
+            tvWord  .setText(getString(R.string.you_guessed_it, word));
+        } else {
+            tvResult.setText(R.string.result_defeat);
+            tvResult.setTextColor(Color.parseColor("#FF0000"));
+            tvWord  .setText(getString(R.string.word_was, word));
+        }
+
+        SharedPreferences prefs  = getSharedPreferences("scores", MODE_PRIVATE);
+        int wins   = prefs.getInt("gagner",   0);
+        int losses = prefs.getInt("perdu", 0);
+        tvScore.setText(getString(R.string.overall_score, wins, losses));
+
+        btnAgain.setOnClickListener(v -> {
+            Intent intent = new Intent(this, StartGame.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
         });
     }
 }
